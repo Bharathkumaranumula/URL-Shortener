@@ -1,0 +1,40 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: yourdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  redis:
+    image: redis:7
+    restart: always
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    depends_on:
+      - app
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    command: ["start", "--config", "/etc/ngrok.yml", "--all"]
+    ports:
+      - "4040:4040"  # Optional: for accessing ngrok web interface
+
+volumes:
+  pgdata:

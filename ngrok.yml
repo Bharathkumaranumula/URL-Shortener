@@ -1,0 +1,7 @@
+version: 2
+authtoken: 2z6eB9KZhrNyAvQNsj1MaLj2gtB_t6AA5pdUC3DBVufRUGQV
+
+tunnels:
+  fastapi:
+    proto: http
+    addr: app:8000

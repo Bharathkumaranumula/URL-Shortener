@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+psycopg2-binary
+redis
+pybase62
+requests
+python-jose
+python-multipart
+jinja2
