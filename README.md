@@ -46,32 +46,34 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
 6.Aiming to reduce Largest Contentful Paint (LCP) by ~40% over a naïve setup.
 
 
-📦 Project Structure (Draft)
+```mermaid
+graph TD
+A[". (root)"]
+A --> B_backend["backend/"]
+B_backend --> B_app["app/"]
+B_app --> B_main["main.py"]
+B_app --> B_routes["routes/"]
+B_app --> B_schemas["schemas/"]
+B_app --> B_services["services/"]
+B_app --> B_utils["utils/"]
+B_backend --> B_dockerfile["Dockerfile"]
+B_backend --> B_requirements["requirements.txt"]
+B_backend --> B_env[".env.example"]
+A --> C_redis["redis/"]
+C_redis --> C_redisconf["... (Redis analytics config)"]
+A --> D_postgres["postgres/"]
+D_postgres --> D_docker["docker‑setup/"]
+A --> E_frontend["frontend/ (upcoming)"]
+E_frontend --> E_src["src/"]
+E_frontend --> E_tailwind["tailwind.config.js"]
+E_frontend --> E_vite["vite.config.js"]
+E_frontend --> E_pkg["package.json"]
+A --> F_compose["docker‑compose.yml"]
+A --> G_github[".github/"]
+G_github --> G_workflows["workflows/"]
+G_workflows --> G_ci_cd["ci‑cd.yml"]
+```
 
-.
-├── backend/
-│   ├── app/
-│   │   ├── main.py           # FastAPI app entry
-│   │   ├── routes/           # Auth, URL‑shortening, analytics
-│   │   ├── schemas/          # Pydantic models
-│   │   ├── services/         # Business logic layer
-│   │   └── utils/            # Logging, config, JWT helpers
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── .env.example
-├── redis/
-│   └── ...                   # Redis analytics config
-├── postgres/
-│   └── docker‑setup
-├── frontend/                 # (Upcoming)
-│   ├── src/
-│   ├── tailwind.config.js
-│   ├── vite.config.js
-│   └── package.json
-├── docker-compose.yml
-└── .github/
-    └── workflows/
-        └── ci-cd.yml
 
 
 **Usage**
