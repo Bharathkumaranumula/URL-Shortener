@@ -1,9 +1,11 @@
-URL‑Shortener with FastAPI, PostgreSQL & Redis Analytics 🚀
+**URL‑Shortener with FastAPI, PostgreSQL & Redis Analytics 🚀**
 
-🔗 Overview
+
+** Overview**
 A high‑performance URL shortener service built with FastAPI and PostgreSQL, engineered for <5 ms redirects, secure JWT‑based authentication, and Redis‑powered analytics capturing clickstream data (timestamps, geolocation) at scale (10K+ RPM).
 
 The system is fully containerized with Docker, exposed via ngrok for public endpoints, and supports CI/CD through GitHub Actions, reducing deployment time by ~60%. A sleek React + Tailwind CSS frontend (bootstrapped with Vite) is in progress—optimized for fast load times thanks to code‑splitting and cached Axios calls.
+
 
 
 ⚙️ Backend Architecture & Features
@@ -20,6 +22,7 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
 
 
 🛠 DevOps & Deployment
+
 1.Dockerized services with individual Dockerfiles for backend, Redis, PostgreSQL, analytics.
 
 2.Use of ngrok to expose local service tunnels for development and testing.
@@ -28,6 +31,7 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
 
 
 🧩 Frontend (In Development)
+
 1.A modern UI under construction with:
 
 2.React + Vite for fast builds and development.
@@ -70,6 +74,7 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
 
         
 🚀 Usage
+
 Backend (Developers)
 
 cd backend
@@ -86,16 +91,18 @@ CI/CD via GitHub Actions
 On each push to main, workflows run tests, lint, build containers, and deploy staging or production.
 
 📈 Click Analytics
-Redis handles live ingestion of redirect events:
 
-Each click event is enriched with timestamp and inferred geolocation.
+1.Redis handles live ingestion of redirect events:
 
-Supports throughput of 10,000+ requests per minute with minimal latency overhead.
+2.Each click event is enriched with timestamp and inferred geolocation.
 
-Analytics dashboard and aggregation queries supported (optional extension).
+3.Supports throughput of 10,000+ requests per minute with minimal latency overhead.
+
+4.Analytics dashboard and aggregation queries supported (optional extension).
 
 
 🧠 Future Work (Roadmap)
+
 1.Frontend live preview—create/customize short links.
 
 2.Click‑analytics dashboard UI (charts, filters).
