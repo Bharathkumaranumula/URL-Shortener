@@ -1,14 +1,15 @@
 **URL‑Shortener with FastAPI, PostgreSQL & Redis Analytics 🚀**
 
 
-** Overview**
+**Overview**
+
 A high‑performance URL shortener service built with FastAPI and PostgreSQL, engineered for <5 ms redirects, secure JWT‑based authentication, and Redis‑powered analytics capturing clickstream data (timestamps, geolocation) at scale (10K+ RPM).
 
 The system is fully containerized with Docker, exposed via ngrok for public endpoints, and supports CI/CD through GitHub Actions, reducing deployment time by ~60%. A sleek React + Tailwind CSS frontend (bootstrapped with Vite) is in progress—optimized for fast load times thanks to code‑splitting and cached Axios calls.
 
 
 
-⚙️ Backend Architecture & Features
+  **Backend Architecture & Features**
 
 1.FastAPI-powered backend with asynchronous endpoints, delivering ultra-fast performance.
 
@@ -21,7 +22,7 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
 5.Redis-based analytics pipeline capturing clickstream events (timestamp, IP or geolocation, user agent, referrer), supporting 10K+ requests per minute.
 
 
-🛠 DevOps & Deployment
+ **DevOps & Deployment**
 
 1.Dockerized services with individual Dockerfiles for backend, Redis, PostgreSQL, analytics.
 
@@ -30,7 +31,7 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
 3.GitHub Actions CI/CD pipelines handle build, test, docker-compose deployment—cutting deployment time by up to 60%.
 
 
-🧩 Frontend (In Development)
+ **Frontend (In Development)**
 
 1.A modern UI under construction with:
 
@@ -72,25 +73,31 @@ The system is fully containerized with Docker, exposed via ngrok for public endp
     └── workflows/
         └── ci-cd.yml
 
-        
-🚀 Usage
 
-Backend (Developers)
+**Usage**
+**Backend (Developers)**
 
 cd backend
+
 pip install -r requirements.txt
+
 uvicorn app.main:app --reload
+
 Use the /docs or /redoc endpoints for OpenAPI interface—with endpoints for signup/login (JWT), create short URL, and redirect alias.
 
 
-Docker + ngrok
+**Docker + ngrok**
+
 docker-compose up --build
+
 ngrok http http://localhost:8000
 
-CI/CD via GitHub Actions
+
+**CI/CD via GitHub Actions**
+
 On each push to main, workflows run tests, lint, build containers, and deploy staging or production.
 
-📈 Click Analytics
+**Click Analytics**
 
 1.Redis handles live ingestion of redirect events:
 
@@ -101,7 +108,7 @@ On each push to main, workflows run tests, lint, build containers, and deploy st
 4.Analytics dashboard and aggregation queries supported (optional extension).
 
 
-🧠 Future Work (Roadmap)
+**Future Work (Roadmap)**
 
 1.Frontend live preview—create/customize short links.
 
